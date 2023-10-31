@@ -1,0 +1,22 @@
+The main objectives of this lab include:
+
+    Design a simplified Art Gallery management system (We will do this step together in Week 8.)
+        identify the relevant types of real-world entities;
+        for each entity type, identify the list of relevant attributes and the list of data operations (or methods/functions)
+        for each attribute, identify its suitable datatype
+        for each method, describe its algorithm 
+    Implement the above system in C++ using
+        C++ classes with separate files
+        use a few common functions such as std::sort() and std:count_if() included in the <algorithm> library
+        learn to pass a free-standing function to the above functions as a parameter or use a lambda function if you feel courageous 
+
+We are going to use this online Art Gallery to learn about the major types of relevant data. (Disclaimer: I am not associated with this website in any manner. I did a simple Web search and identified this one because of its very intuitive UI.)
+
+Here's the instructor's design doc. You will need to
+
+    write pesudocode for three member functions in the Gallery class and include your pseudocode in the DesignDoc
+    implement all the included classes' member functions .
+    include unit tests to test your C++ implementation of major member functions.
+
+    
+https://docs.google.com/document/d/1CHkhNolIwCsYKihJkZs18zxX8Hs_4FYcU_QMqxHEbnQ/edit
