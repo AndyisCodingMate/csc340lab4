@@ -432,11 +432,11 @@ namespace NS_ARTGALLERY{
         for (int i=0; i < artistsList.size(); i++){
             if (artistsList[i].getName() == artist.getName() && artistsList[i].getEmail() == artist.getEmail()){
                 found = true;
-                artist.setID(nextArtistID());
+                artist.setID(artistsList[i].getID());
                 }
             }
         if (found == false){
-            artist.setID(artistsList.size());
+            artist.setID(uniqueIDGenerator.next_artistID());
             artistsList.push_back(artist);
             return artist.getID();
             }
@@ -453,7 +453,7 @@ namespace NS_ARTGALLERY{
                 }
             }
         if (found == false){
-            customer.setID(customersList.size());
+            customer.setID(uniqueIDGenerator.next_customerID());
             customersList.push_back(customer);
             return customer.getID();
             }
@@ -466,14 +466,29 @@ namespace NS_ARTGALLERY{
     //If new, assign this artist a unique ID and add them to the artistList. If not new, retrieve their ID from the artistList. You will also need to 
     //update the artworkListCurated and the artworkListForSale. Finally, you will need to update the curationRecords to include this new curation.
     void Gallery::curateArtwork(Artwork newItem, Artist artist){
+        Date today;
         int artistID = addArtist(artist);
-        
-               
+        newItem.setID(uniqueIDGenerator.next_artworkID());
+        newItem.setArtistID(artistID);
+        artworksCurated.push_back(newItem);
+        artworksForSale.push_back(newItem);
+        addCuration(Curation(newItem.getID(), artistID, today));
         }
     
-    //artwork sale: sell a for-sale artwork to a customer. customer.ID is set to -1 initially. So you will need to find out if this customer is new using their name and email address. If new, assign this customer a unique ID and add them to the customerList. If not, retrieve their ID from customerList. You will also need to check if the specified artworkID is still for sale. If yes, update the artworkListForSale by removing this artwork that was just sold, and update the salesRecords to include this new sale. If this artwork is not for sale, do nothing. 
+    //artwork sale: sell a for-sale artwork to a customer. customer.ID is set to -1 initially. So you will need to find out if this customer 
+    //is new using their name and email address. If new, assign this customer a unique ID and add them to the customerList. If not, 
+    //retrieve their ID from customerList. You will also need to check if the specified artworkID is still for sale. 
+    //If yes, update the artworkListForSale by removing this artwork that was just sold, and update the salesRecords to include this new sale. 
+    //If this artwork is not for sale, do nothing. 
     void Gallery::sellArtwork(int artworkID, Customer customer){
-
+        Date today;
+        int customerID = addCustomer(customer);
+        for (int i=0; i < artworksForSale.size(); i++){
+            if (artworksForSale[i].getID() == artworkID){
+                artworksForSale.erase(artworksForSale.begin()+i);
+                addSale(Sale(customerID, artworkID, today));
+                }
+            }
     }
     
     //you can include more functions should you like.  They will not be tested though.
@@ -481,12 +496,12 @@ namespace NS_ARTGALLERY{
 
     //add a new curation record to curationRecords.
     void Gallery::addCuration(Curation curation){
-
+        curationsRecords.push_back(curation);
     }
     
     //add a new sale record to salesRecords
     void Gallery::addSale(Sale sale){
-
+        salesRecords.push_back(sale);
     }
 
 
