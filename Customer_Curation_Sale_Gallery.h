@@ -238,6 +238,7 @@ private:
     string name; //name of the gallery
     string address;
     string webURL; //website of the gallery
+    uniqueIDs uniqueIDGenerator; //a unique ID generator
     vector<Artist> artistsList; //the list of artists who have at least one artwork curated by the gallery
     vector<Customer> customersList; //the list of customers who have ever purchased an artwork from the gallery
     vector<Artwork> artworksCurated; //the list of artworks that have ever been curated by the gallery. We are going to assume every artwork is unique. In other words, we don't have multiple copies of the same artwork.

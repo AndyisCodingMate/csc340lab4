@@ -12,9 +12,8 @@
 namespace NS_ARTGALLERY{
 
 //***implement all the functions declared in "Artwork_Artist.h"
-class Artwork{
-public:    
-    Artwork(){
+   
+    Artwork::Artwork(){
         ID = -1;
         artistID = -1;
         type = ArtType::painting;
@@ -30,64 +29,64 @@ public:
     //hei0ght(0.00),depth(0.00),price(0.00)
     
     //accessors
-    int getID() const{
+    int Artwork::getID() const{
         return ID;
         }
-    int getArtistID() const{
+    int Artwork::getArtistID() const{
         return artistID;
         }
-    ArtType getType() const{
+    ArtType Artwork::getType() const{
         return type;
         }
-    ArtStyle getStyle() const{
+    ArtStyle Artwork::getStyle() const{
         return style;
         }
-    ArtSubject getSubject() const{
+    ArtSubject Artwork::getSubject() const{
         return subject;
         }  
-    double getYearMade() const{
+    double Artwork::getYearMade() const{
         return yearMade;
         }
-    double getWidth() const{
+    double Artwork::getWidth() const{
         return width;
         }
-    double getHeight() const{
+    double Artwork::getHeight() const{
         return height;
         }
-    double getDepth() const{
+    double Artwork::getDepth() const{
         return depth;
         }
-    double getPrice() const{
+    double Artwork::getPrice() const{
         return price;
         }
     //mutators
-    void setID(int newID){
+    void Artwork::setID(int newID){
         ID = newID;
         }
-    void setArtistID( int newID){
+    void Artwork::setArtistID( int newID){
         artistID = newID;
         }
-    void setType( ArtType theType){
+    void Artwork::setType( ArtType theType){
         type = theType;
         }
-    void setStyle(ArtStyle theStyle){
+    void Artwork::setStyle(ArtStyle theStyle){
         style = theStyle;
         }
-    void setSubject(ArtSubject theSubject){
+    void Artwork::setSubject(ArtSubject theSubject){
         subject = theSubject;
         }
-    void setYearMade( int year){
+    void Artwork::setYearMade( int year){
         yearMade = year;
         }
-    void setDimension(double w, double h, double d){
+    void Artwork::setDimension(double w, double h, double d){
         width = w;
         height = h;
         depth = d;
         }
-    void setPrice( double thePrice ){
+    void Artwork::setPrice( double thePrice ){
         price = thePrice;
         }
-};
+
 
 /*
  ---Relevant data properties
@@ -102,10 +101,9 @@ public:
  retrieve an individual property    -----> accessors
  revise an individual property---->mutators
  */
-class Artist{
-public:
+
     //default constructor: ID(-1),name("na"),email("na"),birthYear(1900),birthPlace("na"),primaryArtType(ArtType::painting)
-    Artist(){
+    Artist::Artist(){
         ID = -1;
         name = "na";
         email = "na";
@@ -116,53 +114,53 @@ public:
     
     //accessors
     //returns an artist's ID
-    int getID() const{
+    int Artist::getID() const{
         return ID;
         }
     //returns an artist's name
-    string getName() const{
+    string Artist::getName() const{
         return name;
         }
     //returns an artist's email
-    string getEmail() const{
+    string Artist::getEmail() const{
         return email;
         }
     //returns an artist's birthYear
-    int getBirthYear() const{
+    int Artist::getBirthYear() const{
         return birthYear;
         }
     //returns an artist's birthPlace
-    string getBirthPlace() const{
+    string Artist::getBirthPlace() const{
         return birthPlace;
         }
     //returns an artist's primary ArtType
-    ArtType getPrimaryArtType() const{
+    ArtType Artist::getPrimaryArtType() const{
         return primaryArtType;
         }
     
     //mutators
     //changes an artist's ID to theID
-    void setID(int theID){
+    void Artist::setID(int theID){
         ID = theID;
         }
     //changes an artist's name to theName
-    void setName(string theName){
+    void Artist::setName(string theName){
         name = theName;
         }
     //changes an artist's email to theEmail
-    void setEmail(string theEmail){
+    void Artist::setEmail(string theEmail){
         email = theEmail;
         }
     //changes an artist's birthYear to theYear
-    void setBirthYear(int theYear){
+    void Artist::setBirthYear(int theYear){
         birthYear = theYear;
         }
     //changes an artist's birthPlace to thePlace
-    void setBirthPlace(string thePlace){
+    void Artist::setBirthPlace(string thePlace){
         birthPlace = thePlace;
         }
     //returns an artist's primary ArtType to theType
-    void setPrimaryArtType(ArtType theType){
+    void Artist::setPrimaryArtType(ArtType theType){
         primaryArtType = theType;
         }
 
