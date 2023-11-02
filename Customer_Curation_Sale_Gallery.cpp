@@ -360,7 +360,7 @@ public:
     //update the artworkListCurated and the artworkListForSale. Finally, you will need to update the curationRecords to include this new curation.
     void curateArtwork(Artwork newItem, Artist artist){
         int artistID = addArtist(artist);
-        
+               
         }
     
     //artwork sale: sell a for-sale artwork to a customer. customer.ID is set to -1 initially. So you will need to find out if this customer is new using their name and email address. If new, assign this customer a unique ID and add them to the customerList. If not, retrieve their ID from customerList. You will also need to check if the specified artworkID is still for sale. If yes, update the artworkListForSale by removing this artwork that was just sold, and update the salesRecords to include this new sale. If this artwork is not for sale, do nothing. 
